@@ -13,23 +13,24 @@ class BookingConversation extends Conversation
 {
     protected function askLocation()
     {
-//        $question = Question::create("Привіт! Радий тебе бачити! У якому місті знаходишся?")
-//            ->addButton(
-//                Button::create("Харків")->value(0)
-//            )
-//            ->addButton(
-//                Button::create("Львів")->value(1)
-//            );
+        $locations = ["Харків", "Львів"];
+
+        $row = [];
+        foreach ($locations as $id => $key) {
+            $row[] = KeyboardButton::create($key)->callbackData($id);
+        }
+        $keyboard = Keyboard::create()
+            ->type(Keyboard::TYPE_INLINE)
+            ->oneTimeKeyboard(true)
+            ->addRow(
+                ...$row
+            );
 
         return $this->ask("testtetsetste",
             function (Answer $answer) {
                 //$this->askDate();
             },
-            Keyboard::create()
-                ->type(Keyboard::TYPE_INLINE)
-                ->addRow(
-                    KeyboardButton::create('test')->callbackData('test')
-                )->toArray()
+            $keyboard->toArray()
         );
     }
 
@@ -44,35 +45,23 @@ class BookingConversation extends Conversation
             function (Answer $answer) {
 
             },
-            Keyboard::create()
-                ->type(Keyboard::TYPE_INLINE)
-                ->addRow(
-                    KeyboardButton::create('test')->callbackData('test')
-                )
+            $this->getDateKeyboard()->toArray()
         );
     }
-
-    ////Store location
-    //                $this->ask('Обирай дату, коли хочеш займатися індивідуально:',
-    //                    function (Answer $answer){
-    //
-    //                    },
-    //                    $this->getDateKeyboard()->toArray()
-    //                );
 
     protected function getDateKeyboard()
     {
         $keyboard = Keyboard::create()
             ->type(Keyboard::TYPE_INLINE);
-        $now = new \DateTime();
-        $weekAfter = clone $now;
-        $weekAfter->modify('+7d');
+        $start = new \DateTime();
+        $end = new \DateTime();
+        $end->modify('+7 day');
 
-        $diff = $weekAfter->diff($now);
-
-        foreach ($diff as $date) {
+        $dateInterval = new \DateInterval('P1D');
+        $datePeriod = new \DatePeriod($start, $dateInterval, $end);
+        foreach ($datePeriod as $date) {
             $keyboard->addRow(
-                KeyboardButton::create($date->format('d.m.Y'))->callbackData('')
+                KeyboardButton::create($date->format('d.m.Y'))->callbackData($date->format('d.m.Y'))
             );
         }
 
