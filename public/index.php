@@ -57,4 +57,8 @@ $response = $kernel->handle(
 
 $response->send();
 
+
+\Illuminate\Support\Facades\Log::debug('testtests');
+
+
 $kernel->terminate($request, $response);
