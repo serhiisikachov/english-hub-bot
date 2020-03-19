@@ -13,6 +13,8 @@ class BotManController extends Controller
      */
     public function handle()
     {
+        \Illuminate\Support\Facades\Log::debug(file_get_contents("php://input"));
+
         $botman = app('botman');
 
         $botman->listen();
