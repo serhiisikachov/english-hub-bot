@@ -21,14 +21,18 @@ class BookingConversation extends Conversation
         }
         $keyboard = Keyboard::create()
             ->type(Keyboard::TYPE_INLINE)
-            ->oneTimeKeyboard(true)
-            ->addRow(
-                ...$row
+            ->oneTimeKeyboard(true);
+
+        foreach ($locations as $id => $key) {
+            $key->addRow(
+                KeyboardButton::create($key)->callbackData($id);
             );
+        }
+
 
         return $this->ask("testtetsetste",
             function (Answer $answer) {
-                //$this->askDate();
+                $this->askDate();
             },
             $keyboard->toArray()
         );
