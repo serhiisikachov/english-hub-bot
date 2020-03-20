@@ -24,7 +24,7 @@ class BookingConversation extends Conversation
             ->oneTimeKeyboard(true);
 
         foreach ($locations as $id => $key) {
-            $key->addRow(
+            $keyboard->addRow(
                 KeyboardButton::create($key)->callbackData($id)
             );
         }
