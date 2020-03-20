@@ -25,7 +25,7 @@ class BookingConversation extends Conversation
 
         foreach ($locations as $id => $key) {
             $key->addRow(
-                KeyboardButton::create($key)->callbackData($id);
+                KeyboardButton::create($key)->callbackData($id)
             );
         }
 
