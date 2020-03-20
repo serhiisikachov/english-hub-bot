@@ -14,11 +14,7 @@ class BookingConversation extends Conversation
     protected function askLocation()
     {
         $locations = ["Харків", "Львів"];
-
-        $row = [];
-        foreach ($locations as $id => $key) {
-            $row[] = KeyboardButton::create($key)->callbackData($id);
-        }
+        
         $keyboard = Keyboard::create()
             ->type(Keyboard::TYPE_INLINE)
             ->oneTimeKeyboard(true);
@@ -30,7 +26,7 @@ class BookingConversation extends Conversation
         }
 
 
-        return $this->ask("testtetsetste",
+        return $this->ask("",
             function (Answer $answer) {
                 $this->askDate();
             },
