@@ -32,9 +32,10 @@ class BookingConversation extends Conversation
 
     protected function askLocation()
     {
+        \Illuminate\Support\Facades\Log::debug(print_r($this->getLocationKeyboard()->toArray(), true));
         return $this->ask($this->getLocationQuestion(),
             function (Answer $answer) {
-                return $this->askTeacherOrDate();
+                 //$this->askTeacherOrDate();
             },
             $this->getLocationKeyboard()->toArray()
         );
