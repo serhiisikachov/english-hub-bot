@@ -30,16 +30,16 @@ class BookingConversation extends Conversation
         $this->askLocation();
     }
 
-    protected function askLocation()
-    {
-        \Illuminate\Support\Facades\Log::debug(print_r($this->getLocationKeyboard()->toArray(), true));
-        return $this->ask($this->getLocationQuestion(),
-            function (Answer $answer) {
-                 //$this->askTeacherOrDate();
-            },
-            $this->getLocationKeyboard()->toArray()
-        );
-    }
+//    protected function askLocation()
+//    {
+//        \Illuminate\Support\Facades\Log::debug(print_r($this->getLocationKeyboard()->toArray(), true));
+//        return $this->ask($this->getLocationQuestion(),
+//            function (Answer $answer) {
+//                //$this->askTeacherOrDate();
+//            },
+//            $this->getLocationKeyboard()->toArray()
+//        );
+//    }
 
     protected function askTeacherOrDate(): self
     {
@@ -107,7 +107,7 @@ class BookingConversation extends Conversation
 
 
 
-    /*protected function askLocation()
+    protected function askLocation()
     {
         $locations = ["Харків", "Львів"];
 
@@ -124,11 +124,11 @@ class BookingConversation extends Conversation
 
         return $this->ask("Choose location",
             function (Answer $answer) {
-                $this->askDate();
+                //$this->askDate();
             },
             $keyboard->toArray()
         );
-    }
+    }/**
 
     protected function askDate()
     {
