@@ -121,12 +121,11 @@ class BookingConversation extends Conversation
             );
         }
 
-
-        return $this->ask("Choose location",
+        return $this->ask(Question::create("test"),
             function (Answer $answer) {
                 //$this->askDate();
             },
-            $keyboard->toArray()
+            Keyboard::create()->type( Keyboard::TYPE_KEYBOARD ) ->oneTimeKeyboard() ->addRow( KeyboardButton::create( 'Hello world' ) )->toArray()
         );
     }/**
 
