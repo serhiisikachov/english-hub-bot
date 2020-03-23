@@ -261,27 +261,27 @@
         },
         {
             "name": "botman/tinker",
-            "version": "1.0.3",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/botman/tinker.git",
-                "reference": "b60b354fe50617f4433b757db47e1620614110ab"
+                "reference": "4109602271e1df1e5ec7ec8b4ea961094a2fabfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/botman/tinker/zipball/b60b354fe50617f4433b757db47e1620614110ab",
-                "reference": "b60b354fe50617f4433b757db47e1620614110ab",
+                "url": "https://api.github.com/repos/botman/tinker/zipball/4109602271e1df1e5ec7ec8b4ea961094a2fabfa",
+                "reference": "4109602271e1df1e5ec7ec8b4ea961094a2fabfa",
                 "shasum": ""
             },
             "require": {
                 "botman/botman": "~2.0",
-                "clue/stdio-react": "~1.1.0 | ^2.0",
-                "illuminate/support": "~5.0",
+                "clue/stdio-react": "^2.0",
+                "illuminate/console": "~5.5.0 || ~5.6.0 || ~5.7.0 || ~5.8.0 || ^6.0",
+                "illuminate/support": "~5.5.0 || ~5.6.0 || ~5.7.0 || ~5.8.0 || ^6.0",
                 "php": ">=5.6.0"
             },
             "require-dev": {
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "~5.0"
+                "orchestra/testbench": "^3.5 || ^3.6 || ^3.7 || ^3.8 || ^4.0"
             },
             "type": "library",
             "extra": {
@@ -314,7 +314,7 @@
                 "bot",
                 "laravel"
             ],
-            "time": "2018-02-19T19:59:06+00:00"
+            "time": "2020-02-08T15:28:03+00:00"
         },
         {
             "name": "clue/stdio-react",
