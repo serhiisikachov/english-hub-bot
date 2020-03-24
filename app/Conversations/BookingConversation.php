@@ -122,7 +122,6 @@ class BookingConversation extends Conversation
         }
 
         return $this->ask(Question::create("test")
-
             ,
             function (Answer $answer) {
                 //$this->askDate();
